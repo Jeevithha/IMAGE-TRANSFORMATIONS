@@ -1,4 +1,6 @@
 # IMAGE-TRANSFORMATIONS
+
+
 ## Aim
 To perform image transformation such as Translation, Scaling, Shearing, Reflection, Rotation and Cropping using OpenCV and Python.
 
@@ -20,15 +22,17 @@ Shear the image in both the rows and columns.
 
 ### Step5:
 Find the reflection of the image.
-### Step6:
+
+### step 6:
 Rotate the image using angle function.
 
 ## Program:
-```
-python
-Developed By: JEEVITHA S
-Register Number:212222100016
 
+Developed By:JEEVITHA S
+
+Register Number: 212222100016
+
+```python
 i)Image Translation
 
 import cv2
@@ -59,6 +63,7 @@ print("Original Image:")
 show_image(image)
 print("Translated Image:")
 show_image(translated_image)
+
 
 ii) Image Scaling
 
@@ -92,6 +97,7 @@ print("Original image:")
 show_image(image)
 print("Scaled Image:")
 show_image(scaled_image)
+
 
 iii)Image shearing
 
@@ -128,6 +134,8 @@ print("Original Image:")
 show_image(image)
 print("Sheared Image:")
 show_image(sheared_image)
+
+
 
 iv)Image Reflection
 
@@ -168,7 +176,11 @@ show_image(reflected_image_vertical)
 print("Reflected Both:")
 show_image(reflected_image_both)
 
+
+
+
 v)Image Rotation
+
 
 # Install OpenCV library if not already installed
 !pip install opencv-python-headless
@@ -206,6 +218,10 @@ show_image(image)
 print("Rotated Image:")
 show_image(rotated_image)
 
+
+
+
+
 vi)Image Cropping
 
 # Install OpenCV library if not already installed
@@ -240,31 +256,43 @@ print("Original Image:")
 show_image(image)
 print("Cropped Image:")
 show_image(cropped_image)
+
+
+
+
 ```
 ## Output:
 ### i)Image Translation
-![315514006-1946d4ff-d274-448a-8342-957d981a00d8](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/57c7f74d-f9d0-45a4-ac1a-fc5419dbe34f)
-![315514006-1946d4ff-d274-448a-8342-957d981a00d8](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/91cdb35a-8252-4e73-a966-978cfe33d2c4)
+![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/1946d4ff-d274-448a-8342-957d981a00d8)
+
 
 ### ii) Image Scaling
-![315514674-e293be4d-3c54-4a29-866a-dca65583f169](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/9634c435-097b-4d6d-bdbc-502f0f58d685)
-![315514674-e293be4d-3c54-4a29-866a-dca65583f169](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/d4e464cd-bf74-43c4-ab71-721f54b85121)
+![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/e293be4d-3c54-4a29-866a-dca65583f169)
+
 
 ### iii)Image shearing
-![315515149-e4b37d2d-cd18-402d-bdfd-5656cef4d2cd](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/13f33c08-a1ed-444b-b146-8efc8f22fd4a)
-![315515149-e4b37d2d-cd18-402d-bdfd-5656cef4d2cd](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/79bbae93-d4ff-466c-8161-7fa243f5a65c)
+![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/e4b37d2d-cd18-402d-bdfd-5656cef4d2cd)
+
 
 ### iv)Image Reflection
-![315515874-45bd371d-ca49-4344-ae58-f9273c7979d4](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/996de018-9748-459a-90da-c5c76794bdcb)
-![315515874-45bd371d-ca49-4344-ae58-f9273c7979d4](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/fd7a8fa0-8837-41cd-92c6-f3f72a684266)
-![315516184-928d7451-7600-4f9e-ac8d-53170438e2fd](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/ea38d768-e489-40b7-8546-dc3d7506a789)
-![315516184-928d7451-7600-4f9e-ac8d-53170438e2fd](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/3b705008-84f1-46ca-8541-3b5ec3492b9f)
+
+![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/45bd371d-ca49-4344-ae58-f9273c7979d4)
+
+![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/928d7451-7600-4f9e-ac8d-53170438e2fd)
+
+
 ### v)Image Rotation
-![315516663-5e8f5771-f4e9-4b9c-93b7-d1487f0a1702](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/1a696ea6-a3ec-4819-8af7-82c28a113894)
-![315516663-5e8f5771-f4e9-4b9c-93b7-d1487f0a1702](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/db3a0122-fe98-4902-9d4a-a2c977758103)
+
+![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/5e8f5771-f4e9-4b9c-93b7-d1487f0a1702)
+
+
 ### vi)Image Cropping
-![315516938-f8bd26d8-a9f7-493d-9d13-0fad7272c3aa](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/60e64565-cc43-421c-95bd-d27f0983d11e)
-![315516938-f8bd26d8-a9f7-493d-9d13-0fad7272c3aa](https://github.com/Jeevithha/IMAGE-TRANSFORMATIONS/assets/123623197/f40d5d88-6515-4b28-8914-4867a66dbf65)
+
+![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/f8bd26d8-a9f7-493d-9d13-0fad7272c3aa)
+
+
+
 
 ## Result: 
+
 Thus the different image transformations such as Translation, Scaling, Shearing, Reflection, Rotation and Cropping are done using OpenCV and python programming.
