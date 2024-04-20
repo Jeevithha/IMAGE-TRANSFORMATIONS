@@ -7,22 +7,25 @@ Anaconda - Python 3.7
 
 ## Algorithm:
 ### Step1:
-<br>
+Import the necessary libraries and read the original image and save it as a image variable.
 
 ### Step2:
-<br>
+Translate the image using a function warpPerpective()
 
 ### Step3:
-<br>
+Scale the image by multiplying the rows and columns with a float value.
 
 ### Step4:
-<br>
+Shear the image in both the rows and columns.
 
 ### Step5:
-<br>
+Find the reflection of the image.
+### Step6:
+Rotate the image using angle function.
 
 ## Program:
-```python
+```
+python
 Developed By: JEEVITHA S
 Register Number:212222100016
 
@@ -57,7 +60,6 @@ show_image(image)
 print("Translated Image:")
 show_image(translated_image)
 
-
 ii) Image Scaling
 
 #Install OpenCV library if not already installed
@@ -90,7 +92,6 @@ print("Original image:")
 show_image(image)
 print("Scaled Image:")
 show_image(scaled_image)
-
 
 iii)Image shearing
 
@@ -127,8 +128,6 @@ print("Original Image:")
 show_image(image)
 print("Sheared Image:")
 show_image(sheared_image)
-
-
 
 iv)Image Reflection
 
@@ -169,11 +168,7 @@ show_image(reflected_image_vertical)
 print("Reflected Both:")
 show_image(reflected_image_both)
 
-
-
-
 v)Image Rotation
-
 
 # Install OpenCV library if not already installed
 !pip install opencv-python-headless
@@ -210,10 +205,6 @@ print("Original Image:")
 show_image(image)
 print("Rotated Image:")
 show_image(rotated_image)
-
-
-
-
 
 vi)Image Cropping
 
