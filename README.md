@@ -1,5 +1,6 @@
-# IMAGE-TRANSFORMATIONS
+# EX 04 IMAGE-TRANSFORMATIONS
 
+## DATE:
 
 ## Aim
 To perform image transformation such as Translation, Scaling, Shearing, Reflection, Rotation and Cropping using OpenCV and Python.
@@ -9,287 +10,189 @@ Anaconda - Python 3.7
 
 ## Algorithm:
 ### Step1:
-Import the necessary libraries and read the original image and save it as a image variable.
+Import necessary libraries (NumPy, OpenCV, Matplotlib).
 
 ### Step2:
-Translate the image using a function warpPerpective()
-
+Read an image, convert it to RGB format, and display it using Matplotlib.Define translation parameters (e.g., shifting by 100 pixels horizontally and 200 pixels vertically).Perform translation using cv2.warpAffine().Display the translated image using Matplotlib.
 ### Step3:
-Scale the image by multiplying the rows and columns with a float value.
+Obtain the dimensions (rows, cols, dim) of the input image.Define a scaling matrix M with scaling factors of 1.5 in the x-direction and 1.8 in the y-direction.Perform perspective transformation using cv2.warpPerspective(), scaling the image by a factor of 1.5 in the x-direction and 1.8 in the y-direction.Display the scaled image using Matplotlib.
 
 ### Step4:
-Shear the image in both the rows and columns.
+Define shear matrices M_x and M_y for shearing along the x-axis and y-axis, respectively.Perform perspective transformation using cv2.warpPerspective() with the shear matrices to shear the image along the x-axis and y-axis.Display the sheared images along the x-axis and y-axis using Matplotlib.
 
 ### Step5:
-Find the reflection of the image.
-
-### step 6:
-Rotate the image using angle function.
+Define reflection matrices M_x and M_y for reflection along the x-axis and y-axis, respectively.Perform perspective transformation using cv2.warpPerspective() with the reflection matrices to reflect the image along the x-axis and y-axis.Display the reflected images along the x-axis and y-axis using Matplotlib.
 
 ## Program:
 
-Developed By:JEEVITHA S
+# Developed By:JEEVITHA S
+# Register Number: 212222100016
 
-Register Number: 212222100016
-
-```python
-i)Image Translation
-
-import cv2
+# i)Image Translation
+```
 import numpy as np
-from matplotlib import pyplot as plt
-
-# Function to display images in Colab
-def show_image(image):
-    plt.figure(figsize=(6, 6))
-    plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-    plt.axis('off')
-    plt.show()
-
-# Load an image from URL or file path
-image_url = 'rose.jpg' 
-image = cv2.imread(image_url)
-
-# Define translation matrix
-tx = 50  # Translation along x-axis
-ty = 30  # Translation along y-axis
-translation_matrix = np.float32([[1, 0, tx], [0, 1, ty]])  # Create translation matrix
-
-# Apply translation to the image
-translated_image = cv2.warpAffine(image, translation_matrix, (image.shape[1], image.shape[0]))
-
-# Display original and translated images
-print("Original Image:")
-show_image(image)
-print("Translated Image:")
-show_image(translated_image)
-
-
-ii) Image Scaling
-
-#Install OpenCV library if not already installed
-!pip install opencv-python-headless
-
 import cv2
+import matplotlib.pyplot as plt
+input_image = cv2.imread("Charminar-Hyderabad.jpg")
+input_image = cv2.cvtColor(input_image,cv2.COLOR_BGR2RGB)
+plt.axis('off')
+plt.imshow(input_image)
+plt.show()
+rows,cols,dim=input_image.shape
+M = np.float32([[1, 0, 100],[0, 1, 200],[0, 0, 1]])
+
+translated_image = cv2.warpPerspective(input_image, M, (cols, rows))
+plt.axis('off')
+plt.imshow(translated_image)
+plt.show()
+```
+
+
+# ii) Image Scaling
+```
 import numpy as np
-from matplotlib import pyplot as plt
-
-# Function to display images in Colab
-def show_image(image):
-    plt.figure(figsize=(6, 6))
-    plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-    plt.axis('off')
-    plt.show()
-
-# Load an image from URL or file path
-image_url = 'rose.jpg'  # Replace with your image URL or file path
-image = cv2.imread(image_url)
-
-# Define scale factors
-scale_x = 1.5  # Scaling factor along x-axis
-scale_y = 1.5  # Scaling factor along y-axis
-
-# Apply scaling to the image
-scaled_image = cv2.resize(image, None, fx=scale_x, fy=scale_y, interpolation=cv2.INTER_LINEAR)
-
-# Display original and scaled images
-print("Original image:")
-show_image(image)
-print("Scaled Image:")
-show_image(scaled_image)
-
-
-iii)Image shearing
-
-# Install OpenCV library if not already installed
-!pip install opencv-python-headless
-
 import cv2
+import matplotlib.pyplot as plt
+input_image = cv2.imread("Charminar-Hyderabad.jpg")
+input_image = cv2.cvtColor(input_image,cv2.COLOR_BGR2RGB)
+plt.axis('off')
+plt.imshow(input_image)
+plt.show()
+
+rows, cols, dim = input_image.shape 
+M = np.float32([[1.5, 0, 0],[0, 1.8, 0],[0, 0, 1]])
+
+scaled_img=cv2.warpPerspective (input_image, M, (cols*2, rows*2))
+plt.imshow(scaled_img)
+plt.show()
+```
+
+
+
+# iii)Image shearing
+```
 import numpy as np
-from matplotlib import pyplot as plt
-
-# Function to display images in Colab
-def show_image(image):
-    plt.figure(figsize=(6, 6))
-    plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-    plt.axis('off')
-    plt.show()
-
-# Load an image from URL or file path
-image_url = 'rose.jpg'  # Replace with your image URL or file path
-image = cv2.imread(image_url)
-
-# Define shear parameters
-shear_factor_x = 0.5  # Shear factor along x-axis
-shear_factor_y = 0.2  # Shear factor along y-axis
-
-# Define shear matrix
-shear_matrix = np.float32([[1, shear_factor_x, 0], [shear_factor_y, 1, 0]])
-
-# Apply shear to the image
-sheared_image = cv2.warpAffine(image, shear_matrix, (image.shape[1], image.shape[0]))
-
-# Display original and sheared images
-print("Original Image:")
-show_image(image)
-print("Sheared Image:")
-show_image(sheared_image)
-
-
-
-iv)Image Reflection
-
-# Install OpenCV library if not already installed
-!pip install opencv-python-headless
-
 import cv2
+import matplotlib.pyplot as plt
+input_image = cv2.imread("Charminar-Hyderabad.jpg")
+input_image = cv2.cvtColor(input_image,cv2.COLOR_BGR2RGB)
+plt.axis('off')
+plt.imshow(input_image)
+plt.show()
+
+M_x = np.float32([[1, 0.5, 0],[0, 1 ,0],[0,0,1]])
+M_y =np.float32([[1, 0, 0],[0.5, 1, 0],[0, 0, 1]])
+
+sheared_img_xaxis=cv2.warpPerspective(input_image,M_x, (int(cols*1.5), int(rows *1.5)))
+sheared_img_yaxis = cv2.warpPerspective(input_image,M_y,(int(cols*1.5), int(rows*1.5)))
+
+plt.imshow(sheared_img_xaxis)
+plt.show()
+
+plt.imshow(sheared_img_yaxis)
+plt.show()
+```
+
+
+
+# iv)Image Reflection
+```
 import numpy as np
-from matplotlib import pyplot as plt
-
-# Function to display images in Colab
-def show_image(image):
-    plt.figure(figsize=(6, 6))
-    plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-    plt.axis('off')
-    plt.show()
-
-# Load an image from URL or file path
-image_url = 'rose.jpg'  # Replace with your image URL or file path
-image = cv2.imread(image_url)
-
-# Reflect the image horizontally
-reflected_image_horizontal = cv2.flip(image, 1)
-
-# Reflect the image vertically
-reflected_image_vertical = cv2.flip(image, 0)
-
-# Reflect the image both horizontally and vertically
-reflected_image_both = cv2.flip(image, -1)
-
-# Display original and reflected images
-print("Original Image:")
-show_image(image)
-print("Reflected Horizontally:")
-show_image(reflected_image_horizontal)
-print("Reflected Vertically:")
-show_image(reflected_image_vertical)
-print("Reflected Both:")
-show_image(reflected_image_both)
-
-
-
-
-v)Image Rotation
-
-
-# Install OpenCV library if not already installed
-!pip install opencv-python-headless
-
 import cv2
+import matplotlib.pyplot as plt
+input_image = cv2.imread("Charminar-Hyderabad.jpg")
+input_image = cv2.cvtColor(input_image,cv2.COLOR_BGR2RGB)
+plt.axis('off')
+plt.imshow(input_image)
+plt.show()
+
+M_x= np.float32([[1,0, 0],[0, -1, rows],[0, 0, 1]])
+M_y =np.float32([[-1, 0, cols],[ 0, 1, 0 ],[ 0, 0, 1 ]])
+# Apply a perspective transformation to the image
+reflected_img_xaxis=cv2.warpPerspective (input_image, M_x,(int(cols), int(rows)))
+reflected_img_yaxis= cv2.warpPerspective (input_image, M_y, (int(cols), int(rows)))
+
+                                         
+plt.imshow(reflected_img_xaxis)
+plt.show()
+
+plt.imshow(reflected_img_yaxis)
+plt.show()
+```
+
+
+
+
+# v)Image Rotation
+```
 import numpy as np
-from matplotlib import pyplot as plt
-
-# Function to display images in Colab
-def show_image(image):
-    plt.figure(figsize=(6, 6))
-    plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-    plt.axis('off')
-    plt.show()
-
-# Load an image from URL or file path
-image_url = 'rose.jpg'  # Replace with your image URL or file path
-image = cv2.imread(image_url)
-
-# Define rotation angle in degrees
-angle = 45
-
-# Get image height and width
-height, width = image.shape[:2]
-
-# Calculate rotation matrix
-rotation_matrix = cv2.getRotationMatrix2D((width / 2, height / 2), angle, 1)
-
-# Perform image rotation
-rotated_image = cv2.warpAffine(image, rotation_matrix, (width, height))
-
-# Display original and rotated images
-print("Original Image:")
-show_image(image)
-print("Rotated Image:")
-show_image(rotated_image)
-
-
-
-
-
-vi)Image Cropping
-
-# Install OpenCV library if not already installed
-!pip install opencv-python-headless
-
 import cv2
+import matplotlib.pyplot as plt
+input_image = cv2.imread("Charminar-Hyderabad.jpg")
+input_image = cv2.cvtColor(input_image,cv2.COLOR_BGR2RGB)
+plt.axis('off')
+plt.imshow(input_image)
+plt.show()
+
+angle=np.radians(10)
+M=np.float32([[np.cos(angle),-(np.sin(angle)),0],[np.sin(angle),np.cos(angle),0],[0,0,1]])
+rotated_img = cv2.warpPerspective(input_image,M,(int(cols),int(rows)))
+
+plt.imshow(rotated_img)
+plt.show()
+```
+
+
+
+
+# vi)Image Cropping
+```
 import numpy as np
-from matplotlib import pyplot as plt
+import cv2
+import matplotlib.pyplot as plt
+input_image = cv2.imread("Charminar-Hyderabad.jpg")
+input_image = cv2.cvtColor(input_image,cv2.COLOR_BGR2RGB)
+plt.axis('off')
+plt.imshow(input_image)
+plt.show()
 
-# Function to display images in Colab
-def show_image(image):
-    plt.figure(figsize=(6, 6))
-    plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-    plt.axis('off')
-    plt.show()
+cropped_img= input_image[100:300,100:300]
 
-# Load an image from URL or file path
-image_url = 'rose.jpg'  # Replace with your image URL or file path
-image = cv2.imread(image_url)
-
-# Define cropping coordinates (x, y, width, height)
-x = 100  # Starting x-coordinate
-y = 50   # Starting y-coordinate
-width = 200  # Width of the cropped region
-height = 150  # Height of the cropped region
-
-# Perform image cropping
-cropped_image = image[y:y+height, x:x+width]
-
-# Display original and cropped images
-print("Original Image:")
-show_image(image)
-print("Cropped Image:")
-show_image(cropped_image)
-
-
-
+plt.imshow(cropped_img)
+plt.show()
 
 ```
+
 ## Output:
 ### i)Image Translation
-![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/1946d4ff-d274-448a-8342-957d981a00d8)
 
+![dip4 1](https://github.com/kancharlaNarmadha/IMAGE-TRANSFORMATIONS/assets/119559316/5bd7c3db-2355-459e-a952-5915fa955653)
 
 ### ii) Image Scaling
-![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/e293be4d-3c54-4a29-866a-dca65583f169)
+
+![dip4 2](https://github.com/kancharlaNarmadha/IMAGE-TRANSFORMATIONS/assets/119559316/2ce2b4bd-796c-444f-97a0-8e6579389ab7)
 
 
 ### iii)Image shearing
-![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/e4b37d2d-cd18-402d-bdfd-5656cef4d2cd)
+![dip4 3](https://github.com/kancharlaNarmadha/IMAGE-TRANSFORMATIONS/assets/119559316/298002d3-e918-493e-9911-d328de320fc0)
+
 
 
 ### iv)Image Reflection
+![dip4 4](https://github.com/kancharlaNarmadha/IMAGE-TRANSFORMATIONS/assets/119559316/f8742cb5-ccfd-47f8-ba60-51aac1f22bdb)
 
-![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/45bd371d-ca49-4344-ae58-f9273c7979d4)
-
-![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/928d7451-7600-4f9e-ac8d-53170438e2fd)
 
 
 ### v)Image Rotation
 
-![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/5e8f5771-f4e9-4b9c-93b7-d1487f0a1702)
+![dip4 5](https://github.com/kancharlaNarmadha/IMAGE-TRANSFORMATIONS/assets/119559316/b57d2e31-25b0-4d27-89d3-a14e2f3ee044)
+
 
 
 ### vi)Image Cropping
 
-![image](https://github.com/arshatha-palanivel/IMAGE-TRANSFORMATIONS/assets/118682484/f8bd26d8-a9f7-493d-9d13-0fad7272c3aa)
 
+![dip4 6](https://github.com/kancharlaNarmadha/IMAGE-TRANSFORMATIONS/assets/119559316/4a8da797-a14b-40e5-902d-ea78860cab59)
 
 
 
